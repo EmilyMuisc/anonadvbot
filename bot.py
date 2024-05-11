@@ -23,7 +23,7 @@ collection = db['usernames']
 
 admin_id = ['5871038439']
 
-channel_id = 'shrexgawd'  # Replace with your channel's id
+channel_id = '1001736120014'  # Replace with your channel's id
 channel_link = f'https://t.me/{channel_id}'
 api_id = '22368708'  # Your api_id
 api_hash = 'ec241c37a122cda302d68cb1415d2bff'  # Your api_hash
