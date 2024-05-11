@@ -64,7 +64,11 @@ prediction_link = {'game1' : "link1",
 
 games = list(prediction_link.keys())
 
-result_text = '''test period:{} result:{}'''
+result_text = '''✅Prediction Result:
+👨‍💻Period No: {}
+⚡Result: {}
+
+ Powered by 😈 : 𝐏𝐚𝐧𝐝𝐚𝐭𝐭'''
 
 bot_username = "Pandatsuperbot"
 
@@ -86,7 +90,7 @@ async def start(client, message):
     print("started_sending")
     keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Join Channel", url=channel_link)],
-            [InlineKeyboardButton("Verify Membership", callback_data="verify")]
+            [InlineKeyboardButton("Verify 🔍", callback_data="verify")]
         ])
     await message.reply_photo(image_join,caption="You need to be a member of the channel to use this bot.", reply_markup=keyboard)
 
@@ -102,7 +106,7 @@ async def start(client, message):
 async def ask_for_task(client,message):
     keyboard1 = InlineKeyboardMarkup([
         [InlineKeyboardButton("Free Recharge", callback_data="free_recharge"),
-        InlineKeyboardButton("Prediction", callback_data="prediction")]
+        InlineKeyboardButton("Prediction Hack", callback_data="prediction")]
     ])
     await message.reply_text("Select Task",reply_markup=keyboard1)
 
