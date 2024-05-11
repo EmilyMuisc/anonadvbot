@@ -37,10 +37,10 @@ image_success = "https://telegra.ph/file/ac64992d7bc2b068bece7.jpg"
 recharging = {}
 predicting = {}
 
-game0 = "Tirangagames"
-game1 = "Big Mumbai"
-game0_link = "https://tirangalottery.in/#/register?invitationCode=15152485405"
-game1_link = "https://big-mumbai.club/#/register?invitationCode=18222435694"
+game0 = "55 CLUB"
+game1 = "TIRANGA GAMES"
+game0_link = "https://55club.in/#/register?invitationCode=78718585894"
+game1_link = "https://tirangalottery.in/#/register?invitationCode=5582268213"
 image_game = {"https://telegra.ph/file/209005ce9f1d0c0f73188.jpg":game0_link,
               "https://telegra.ph/file/fcf0481ad4de9ee356dcb.png":game1_link}
 
