@@ -21,7 +21,7 @@ db = client['usernames_db']
 # Select the collection
 collection = db['usernames']
 
-admin_id = ['5871038439']
+admin_id = ['1885378721']
 
 channel_id = '1001736120014'  # Replace with your channel's id
 channel_link = f'https://t.me/{channel_id}'
