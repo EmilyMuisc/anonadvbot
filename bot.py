@@ -27,7 +27,7 @@ channel_id = '1001736120014'  # Replace with your channel's id
 channel_link = f'https://t.me/{channel_id}'
 api_id = '22368708'  # Your api_id
 api_hash = 'ec241c37a122cda302d68cb1415d2bff'  # Your api_hash
-bot_token = '7107349240:AAF3Yce6Q6Jd7Ytu4IxTTfz1_n3iGZ4hXUs'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
+bot_token = '7157897694:AAFiptPnOPxtpDqFtWRtdCoTbMXdknIwxVI'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
@@ -66,7 +66,7 @@ games = list(prediction_link.keys())
 
 result_text = '''test period:{} result:{}'''
 
-bot_username = "dalal_90_bot"
+bot_username = "Pandatsuperbot"
 
 def get_random_result():
 
