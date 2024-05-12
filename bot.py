@@ -108,7 +108,9 @@ async def ask_for_task(client,message):
         [InlineKeyboardButton("Free Recharge", callback_data="free_recharge"),
         InlineKeyboardButton("Prediction Hack", callback_data="prediction")]
     ])
-    await message.reply_text("What Can I Do For You ? ",reply_markup=keyboard1)
+    await message.reply_text("Hey 👋, 
+    I am ⚔️ 𝙋𝙖𝙣𝙙𝙖𝙩 𝙎𝙪𝙥𝙚𝙧 𝘽𝙤𝙩 ⚔️
+    What Can I Do For You ? ",reply_markup=keyboard1)
 
 @app.on_callback_query(filters.regex("verify"))
 async def verify(client, callback_query):
@@ -150,8 +152,8 @@ async def prediction(client, callback_query):
         if member.status not in ["left", "kicked"]:
             keyboard3 = InlineKeyboardMarkup([
                 [InlineKeyboardButton(games[0], callback_data="predict_0"),
-                InlineKeyboardButton(games[1],callback_data="predict_1"),
-                InlineKeyboardButton("back",callback_data="back")]
+                InlineKeyboardButton(games[1],callback_data="predict_1")],
+               [ InlineKeyboardButton("Back",callback_data="back")]
             ])
         
             await callback_query.message.reply_text("ᴡʜɪᴄʜ ɢᴀᴍᴇ ᴘʀᴇᴅɪᴄᴛɪᴏɴ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ?",reply_markup=keyboard3)
