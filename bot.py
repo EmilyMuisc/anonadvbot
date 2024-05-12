@@ -154,7 +154,7 @@ async def prediction(client, callback_query):
                 InlineKeyboardButton("back",callback_data="back")]
             ])
         
-            await callback_query.message.reply_text("what game would you like to play for prediction",reply_markup=keyboard3)
+            await callback_query.message.reply_text("ᴡʜɪᴄʜ ɢᴀᴍᴇ ᴘʀᴇᴅɪᴄᴛɪᴏɴ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ?",reply_markup=keyboard3)
         else:
             raise UserNotParticipant
     except UserNotParticipant:
@@ -173,7 +173,7 @@ async def predict_for_game(client, callback_query):
             
             # await callback_query.message.reply_text(f"enter period number for {game_name}")
             # predicting[user_id] = True
-            registered_or_not = InlineKeyboardMarkup([[InlineKeyboardButton("yes",callback_data="yes"),InlineKeyboardButton("no",callback_data="no")]])
+            registered_or_not = InlineKeyboardMarkup([[InlineKeyboardButton("yes",callback_data="Yes"),InlineKeyboardButton("No",callback_data="no")]])
             await callback_query.message.reply_text(f"to play {game_name} you have to register at {link}")
             await callback_query.message.reply_text(f"have you registered?",reply_markup=registered_or_not)
         else:
