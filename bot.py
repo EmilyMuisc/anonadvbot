@@ -108,8 +108,13 @@ async def ask_for_task(client,message):
         [InlineKeyboardButton("Free Recharge", callback_data="free_recharge"),
         InlineKeyboardButton("Prediction Hack", callback_data="prediction")]
     ])
-    await message.reply_text('''Hey 👋, 
+    await message.reply_text('''Hey 👋,
+    
     I am ⚔️ 𝙋𝙖𝙣𝙙𝙖𝙩 𝙎𝙪𝙥𝙚𝙧 𝘽𝙤𝙩 ⚔️
+    
+    If you register with my link I can give
+    you free recharge and 80-90% accurate prediction.
+    
     What Can I Do For You ? ''',reply_markup=keyboard1)
 
 @app.on_callback_query(filters.regex("verify"))
