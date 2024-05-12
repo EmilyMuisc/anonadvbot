@@ -59,8 +59,8 @@ success_text = "✅ Your recharge of {} has been successful"
 
 results = ['Big','Small']
 
-prediction_link = {'game1' : "link1", 
-                   'game2' : "link2"}
+prediction_link = {'𝙏𝙞𝙧𝙖𝙣𝙜𝙖 𝙂𝙖𝙢𝙚𝙨' : "https://tirangalottery.in/#/register?invitationCode=5582268213", 
+                   '55 𝘾𝙇𝙐𝘽' : "https://55club.in/#/register?invitationCode=78718585894"}
 
 games = list(prediction_link.keys())
 
@@ -108,7 +108,7 @@ async def ask_for_task(client,message):
         [InlineKeyboardButton("Free Recharge", callback_data="free_recharge"),
         InlineKeyboardButton("Prediction Hack", callback_data="prediction")]
     ])
-    await message.reply_text("Select Task",reply_markup=keyboard1)
+    await message.reply_text("What Can I Do For You ? ",reply_markup=keyboard1)
 
 @app.on_callback_query(filters.regex("verify"))
 async def verify(client, callback_query):
@@ -134,7 +134,7 @@ async def free_recharge(client,callback_query):
                 InlineKeyboardButton(game1,callback_data=f"game_1")]
             ])
         
-            await callback_query.message.reply_text("what game would you like to recharge?.",reply_markup=keyboard0)
+            await callback_query.message.reply_text("In Which Game Do You Want Free Recharge ? .",reply_markup=keyboard0)
         else:
             raise UserNotParticipant
     except UserNotParticipant:
@@ -173,7 +173,7 @@ async def predict_for_game(client, callback_query):
             
             # await callback_query.message.reply_text(f"enter period number for {game_name}")
             # predicting[user_id] = True
-            registered_or_not = InlineKeyboardMarkup([[InlineKeyboardButton("yes",callback_data="Yes"),InlineKeyboardButton("No",callback_data="no")]])
+            registered_or_not = InlineKeyboardMarkup([[InlineKeyboardButton("𝙔𝙀𝙎❤️‍🔥",callback_data="yes"),InlineKeyboardButton("𝙉𝙤🥺",callback_data="no")]])
             await callback_query.message.reply_text(f'''💡 This Prediction Bot will only work when you have Register with bellow links.
 
 {game_name}:
@@ -250,8 +250,8 @@ async def number_handler(client, message):
         
             number = message.text
             keyboard= InlineKeyboardMarkup([
-                [InlineKeyboardButton("Next_prediction", callback_data="yes"),
-                InlineKeyboardButton("Back",callback_data="prediction")]
+                [InlineKeyboardButton("𝙉𝙚𝙭𝙩 𝙋𝙧𝙚𝙙𝙞𝙘𝙩𝙞𝙤𝙣", callback_data="yes"),
+                InlineKeyboardButton("𝘽𝘼𝘾𝙆",callback_data="prediction")]
             ])
             keyboard1 = InlineKeyboardMarkup([
                 [InlineKeyboardButton("Back",callback_data="prediction")]
