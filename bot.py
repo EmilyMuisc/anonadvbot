@@ -174,8 +174,14 @@ async def predict_for_game(client, callback_query):
             # await callback_query.message.reply_text(f"enter period number for {game_name}")
             # predicting[user_id] = True
             registered_or_not = InlineKeyboardMarkup([[InlineKeyboardButton("yes",callback_data="Yes"),InlineKeyboardButton("No",callback_data="no")]])
-            await callback_query.message.reply_text(f"to play {game_name} you have to register at {link}")
-            await callback_query.message.reply_text(f"have you registered?",reply_markup=registered_or_not)
+            await callback_query.message.reply_text(f"💡 This Prediction Bot will only work when you have Register with bellow links.
+
+{game_name}:
+{link}
+
+
+📑 If you follow with above links, there will be upto 99% chance of right prediction.")
+            await callback_query.message.reply_text(f"𝙃𝙖𝙫𝙚 𝙔𝙤𝙪 𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙚𝙙 𝙏𝙝𝙚 𝙍𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙩𝙞𝙤𝙣?",reply_markup=registered_or_not)
         else:
             raise UserNotParticipant
     except UserNotParticipant:
@@ -183,7 +189,7 @@ async def predict_for_game(client, callback_query):
 
 @app.on_callback_query(filters.regex('no'))
 async def no(client,callback_query):
-    await callback_query.answer("register kar bsdk",show_alert=True)
+    await callback_query.answer("Register kar bsdk😑",show_alert=True)
 
 @app.on_callback_query(filters.regex('yes'))
 async def yes(client,callback_query):
@@ -193,7 +199,7 @@ async def yes(client,callback_query):
         member = await client.get_chat_member(channel_id, callback_query.from_user.id)
         if member.status not in ["left", "kicked"]:
             
-            await callback_query.message.reply_text(f"enter period number :")
+            await callback_query.message.reply_text(f"🎮 Enter Period last 3 digits. :")
             predicting[user_id] = True
            
         else:
