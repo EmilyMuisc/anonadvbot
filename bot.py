@@ -31,7 +31,7 @@ bot_token = '7157897694:AAFiptPnOPxtpDqFtWRtdCoTbMXdknIwxVI'#'7032384318:AAFgxr2
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
-image_join = "https://telegra.ph/file/15a14c8ee9ac8e98d1c20.jpg"
+image_join = "https://telegra.ph/file/5bafa71637699d60bf2b0.jpg"
 
 image_success = "https://telegra.ph/file/ac64992d7bc2b068bece7.jpg"
 recharging = {}
