@@ -108,9 +108,9 @@ async def ask_for_task(client,message):
         [InlineKeyboardButton("Free Recharge", callback_data="free_recharge"),
         InlineKeyboardButton("Prediction Hack", callback_data="prediction")]
     ])
-    await message.reply_text("Hey 👋, 
+    await message.reply_text('''Hey 👋, 
     I am ⚔️ 𝙋𝙖𝙣𝙙𝙖𝙩 𝙎𝙪𝙥𝙚𝙧 𝘽𝙤𝙩 ⚔️
-    What Can I Do For You ? ",reply_markup=keyboard1)
+    What Can I Do For You ? ''',reply_markup=keyboard1)
 
 @app.on_callback_query(filters.regex("verify"))
 async def verify(client, callback_query):
