@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 from motor.motor_asyncio import AsyncIOMotorClient
 
 
-URI = "mongodb+srv://giftrobot:ankit090@cluster0.ox60aze.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+URI = "mongodb+srv://Chetancode:ankit090@cluster0.bjqkhqd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 # Establish a connection to the MongoDB server
 client = AsyncIOMotorClient(URI)
 
