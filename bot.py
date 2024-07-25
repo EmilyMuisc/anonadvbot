@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 from motor.motor_asyncio import AsyncIOMotorClient
 
 
-URI = "mongodb+srv://pandatdb:ankit090@pamdatdb.akvof4j.mongodb.net/?retryWrites=true&w=majority&appName=pamdatdb"
+URI = "mongodb+srv://giftrobot:ankit090@cluster0.ox60aze.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 # Establish a connection to the MongoDB server
 client = AsyncIOMotorClient(URI)
 
@@ -21,17 +21,24 @@ db = client['usernames_db']
 # Select the collection
 collection = db['usernames']
 
-admin_id = ['1885378721']
+admin_id = [5871038439,6639559853]
 
-channel_id = '-1001736120014'  # Replace with your channel's id
-channel_link = f'https://t.me/+UOIhd1I4XbRmMDZl'
+channel_dictionary = {
+    '-1001997981310' : "https://t.me/ChetuP18",
+    '-1002058092597' : "https://t.me/TirangaAsliChetan",
+    '-1001990308626' : "https://t.me/AsliChetan_Prediction",
+    '-1002029214229' : "https://t.me/BDGASLI_PREDICTION"
+}
+
 api_id = '22368708'  # Your api_id
 api_hash = 'ec241c37a122cda302d68cb1415d2bff'  # Your api_hash
-bot_token = '7157897694:AAFiptPnOPxtpDqFtWRtdCoTbMXdknIwxVI'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
+bot_token = '7398623122:AAHCC8bbGutcy4CuNrDhiCw1vvxoR6DrCLU'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
-image_join = "https://telegra.ph/file/15a14c8ee9ac8e98d1c20.jpg"
+image_join = "https://telegra.ph/file/7d36a15ebfb442b3b43ab.jpg"
+
+code_img = "https://telegra.ph/file/12475f925e0f1f3cfa8de.jpg"
 
 image_success = "https://telegra.ph/file/ac64992d7bc2b068bece7.jpg"
 recharging = {}
@@ -39,10 +46,27 @@ predicting = {}
 
 game0 = "55 CLUB"
 game1 = "TIRANGA GAMES"
+game2 = "KWG GAME"
+game3 = "BDG"
+
+game_codes = {
+    game0:"####0",
+    game1:"####1",
+    game2:"####2",
+    game3:"####3"
+}
+
+
 game0_link = "https://55club.in/#/register?invitationCode=78718585894"
 game1_link = "https://tirangalottery.in/#/register?invitationCode=5582268213"
+game2_link = "https://kwggame.com/#/register?invitationCode=133908W403"
+game3_link = "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"
+
+
 image_game = {"https://telegra.ph/file/31bccfcf79ce935f26acb.jpg":game0_link,
-              "https://telegra.ph/file/8f140f16dbd65f3e1c560.jpg":game1_link}
+              "https://telegra.ph/file/8f140f16dbd65f3e1c560.jpg":game1_link,
+              "https://telegra.ph/file/8d327f7727ddc1e98cde3.jpg":game2_link,
+              "https://telegra.ph/file/c661b7fded340c7705738.jpg":game3_link,}
 
 image_photos = list(image_game.keys())
 
@@ -55,12 +79,15 @@ Special Link: {}
 After create the new account with above special link submit your game UID
 
 📥 Enter Your Game UID '''
+
 success_text = "✅ Your recharge of {} has been successful"
 
 results = ['Big','Small']
 
-prediction_link = {'𝙏𝙞𝙧𝙖𝙣𝙜𝙖 𝙂𝙖𝙢𝙚𝙨' : "https://tirangalottery.in/#/register?invitationCode=5582268213", 
-                   '55 𝘾𝙇𝙐𝘽' : "https://55club.in/#/register?invitationCode=78718585894"}
+prediction_link = {'55 𝘾𝙇𝙐𝘽' : "https://55club.in/#/register?invitationCode=78718585894",
+                   '𝙏𝙞𝙧𝙖𝙣𝙜𝙖 𝙂𝙖𝙢𝙚𝙨' : "https://tirangalottery.in/#/register?invitationCode=5582268213",
+                   'ᴋᴡɢ ɢᴀᴍᴇ' : "https://kwggame.com/#/register?invitationCode=133908W403", 
+                   'ʙᴅɢ' : "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"}
 
 games = list(prediction_link.keys())
 
@@ -68,9 +95,10 @@ result_text = '''✅Prediction Result:
 👨‍💻Period No: {}
 ⚡Result: {}
 
- Powered by 😈 : 𝐏𝐚𝐧𝐝𝐚𝐭𝐭'''
+ Powered by 😈 : 𝘾𝙝𝙚𝙩𝙖𝙣 𝙋18'''
 
-bot_username = "Pandatsuperbot"
+# bot_username = "Pandatsuperbot"
+
 
 def get_random_result():
 
@@ -88,111 +116,224 @@ async def start(client, message):
         print(f"Hello {username}, you are already registered.")
 
     print("started_sending")
-    keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton("Join Channel", url=channel_link)],
-            [InlineKeyboardButton("Verify 🔍", callback_data="verify")]
-        ])
-    await message.reply_photo(image_join,caption="You need to be a member of the channel to use this bot.", reply_markup=keyboard)
 
-    # member = await client.get_chat_member(channel_id, message.from_user.id)
-    # if member.status not in ["left", "kicked"]:
+    join_buttons = [
+        [InlineKeyboardButton(f"Join Channel {i+1}", url=link)]
+        for i, (channel_id, link) in enumerate(channel_dictionary.items())
+    ]
+    
+    # Add the verify button
+    join_buttons.append([InlineKeyboardButton("Verify", callback_data="verify")])
+    keyb = InlineKeyboardMarkup(join_buttons)
 
-        
+    await message.reply_photo(image_join,caption="You need to be a member of all the channels to use this bot.", reply_markup=keyb)
 
-    # else:
-    #     await message.reply_text("You are not a member yet, pls join meow")
-    #     await start(client, message)
+@app.on_message(filters.private & filters.command("gamelist") & filters.user(admin_id))
+async def gamelist(client, message):
+    await message.reply(f"list of games as follows : {list(game_codes.keys())}")
+
+@app.on_message(filters.private & filters.command("code") & filters.user(admin_id))
+async def code(client, message):
+
+    if len(message.command) > 1:
+        query = message.command[1:]
+    else:
+        await message.reply("provide arguments accordingly using this format : /code gamename$givencode")
+        return
+    query = ' '.join(query)
+
+    query = query.split('$')
+    print(query)
+    if len(query) < 2:
+        await message.reply("Invalid command Use this format : /code gamename$givencode")
+        return
+    
+    game = query[0]
+    code = query[1]
+
+    print(f"{game} ----- {code}")
+
+    if game in game_codes.keys():
+
+        if game == game0:
+            # game_codes[game0] = code
+            game_codes.update({game0 : code})
+            await message.reply(f"Code updated for {game0} with new code : {game_codes.get(game0)}")
+
+        elif game == game1:
+            # game_codes[game1] = code
+            game_codes.update({game1 : code})
+            await message.reply(f"Code updated for {game1} with new code : {game_codes.get(game1)}")
+
+        elif game == game2:
+            # game_codes[game2] = code
+            game_codes.update({game2 : code})
+            await message.reply(f"Code updated for {game2} with new code : {game_codes.get(game2)}")
+
+        elif game == game3:
+            # game_codes[game3] = code
+            game_codes.update({game3 : code})
+            await message.reply(f"Code updated for {game3} with new code : {game_codes.get(game3)}")
+            
+    else:
+        await message.reply("Game name is invalid or not in library")
 
 async def ask_for_task(client,message):
+    message = message.message
     keyboard1 = InlineKeyboardMarkup([
         [InlineKeyboardButton("Free Recharge", callback_data="free_recharge"),
-        InlineKeyboardButton("Prediction Hack", callback_data="prediction")]
+        InlineKeyboardButton("ɢᴇᴛ ᴘʀᴇᴅɪᴄᴛɪᴏɴ", callback_data="prediction")],
+        [InlineKeyboardButton("ɢɪꜰᴛ ᴄᴏᴅᴇ 🎁", callback_data="daily")]
     ])
     await message.reply_text('''Hey 👋,
     
-    I am ⚔️ 𝙋𝙖𝙣𝙙𝙖𝙩 𝙎𝙪𝙥𝙚𝙧 𝘽𝙤𝙩 ⚔️
+    I am MΛƬЯIX MӨD BӨƬ
     
     If you register with my link I can give
     you free recharge and 80-90% accurate prediction.
     
     What Can I Do For You ? ''',reply_markup=keyboard1)
 
+async def chk_if_member(client,callback_query,function_to_run,first:bool):
+    user_id = callback_query.from_user.id
+    user_name = callback_query.from_user.username
+    not_joined_channels = []
+    
+    # Check if the user has joined all channels
+    for channel_id in channel_dictionary.keys():
+        print(channel_id)
+
+        try:
+            member = await app.get_chat_member(channel_id, user_id)
+            # print(member)
+            if member.status not in ["left", "kicked"]:
+                print("channel member true")
+            else:
+                raise UserNotParticipant
+        except UserNotParticipant:
+            not_joined_channels.append(channel_id)
+        
+        except Exception as e:
+            print(f"$#problem during channel {channel_id} : {e}")
+    
+    if not not_joined_channels:
+        # User has joined all channels
+        # await callback_query.message.edit_text("Welcome! You have joined all the channels.")
+        if first:
+            await callback_query.message.edit_text("Verification successful! You are now a member of the channel.")
+
+        # await ask_for_task(client, callback_query.message)
+
+        await function_to_run(client,callback_query)
+
+    else:
+        print(not_joined_channels)
+        # User has not joined all channels
+        try:
+            await callback_query.message.edit_text(
+                "You need to join all the channels to proceed.",
+                reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(f"Join Channel {i+1}", url=channel_dictionary[channel_id])]
+                    for i, channel_id in enumerate(not_joined_channels)
+                ] + [[InlineKeyboardButton("Verify", callback_data="verify")]])
+            )
+        except:
+            print("already edited")
+        await callback_query.answer("You are not yet a member. Please join the channel and click verify again.", show_alert=True)
+
+@app.on_callback_query(filters.regex('daily'))
+async def daily(client, callback_query):
+    # for i,game in enumerate(games):
+    #     print(f"daily_{i}")
+    kobe = [[InlineKeyboardButton(game,callback_data=f"code_{i}")] for i,game in enumerate(games)]
+
+    kobe.append([InlineKeyboardButton("back",callback_data="back")])
+
+    kob = InlineKeyboardMarkup(kobe)
+
+    await callback_query.message.reply(f"Which games's code would you like to know",reply_markup=kob)
+
+@app.on_callback_query(filters.regex(r"^code_"))
+async def see_daily(client,callback_query):
+
+    async def fuc(client,callback_query):
+        game_index = int(callback_query.data.split('_')[1])
+        game_codes_names = list(game_codes.keys())
+        game_codes_vals = list(game_codes.values())
+
+        game_name = game_codes_names[game_index]
+        code_to_show = game_codes_vals[game_index]
+
+        await callback_query.message.reply_photo(code_img,caption = f'''✅️ Your Code For {game_name} Is Generated Successfully ✅
+
+🤩 Code: {code_to_show}
+
+
+
+📝 ɴᴏᴛᴇ: ɪꜰ ᴛʜᴇ ᴄᴏᴅᴇ ᴅᴏᴇꜱɴ'ᴛ ᴡᴏʀᴋ ᴛʜᴇɴ ᴋɪɴᴅʟʏ ᴀꜰᴛᴇʀ ꜱᴏᴍᴇ ᴛɪᴍᴇ ɴᴇᴡ ᴄᴏᴅᴇ ᴡɪʟʟ ʙᴇ ᴜᴘᴅᴀᴛᴇᴅ ꜱᴏᴏɴ''')
+    
+    await chk_if_member(client,callback_query,fuc,first=False)
+
 @app.on_callback_query(filters.regex("verify"))
 async def verify(client, callback_query):
-    try:
-        member = await client.get_chat_member(channel_id, callback_query.from_user.id)
-        if member.status not in ["left", "kicked"]:
-            await callback_query.message.edit_text("Verification successful! You are now a member of the channel.")
-            # await start(client, callback_query.message)
-            await ask_for_task(client, callback_query.message)
-            
-        else:
-            raise UserNotParticipant
-    except UserNotParticipant:
-        await callback_query.answer("You are not yet a member. Please join the channel and click verify again.", show_alert=True)
+    await chk_if_member(client, callback_query,ask_for_task,first=True)
+    
 
 @app.on_callback_query(filters.regex("free_recharge"))
 async def free_recharge(client,callback_query):
-    try:
-        member = await client.get_chat_member(channel_id, callback_query.from_user.id)
-        if member.status not in ["left", "kicked"]:
-            keyboard0 = InlineKeyboardMarkup([
+    
+    async def fuc(client,callback_query):
+        keyboard0 = InlineKeyboardMarkup([
                 [InlineKeyboardButton(game0, callback_data=f"game_0"),
-                InlineKeyboardButton(game1,callback_data=f"game_1")]
+                InlineKeyboardButton(game1,callback_data=f"game_1")],
+
+                [InlineKeyboardButton(game2, callback_data=f"game_2"),
+                InlineKeyboardButton(game3,callback_data=f"game_3")]
             ])
-        
-            await callback_query.message.reply_text("In Which Game Do You Want Free Recharge ? .",reply_markup=keyboard0)
-        else:
-            raise UserNotParticipant
-    except UserNotParticipant:
-        await callback_query.answer("You are not yet a member. Please join the channel and click verify again.", show_alert=True)
+        await callback_query.message.reply_text("In Which Game Do You Want Free Recharge ? .",reply_markup=keyboard0)
+
+    await chk_if_member(client,callback_query,fuc,False)
 
 @app.on_callback_query(filters.regex('prediction'))
 async def prediction(client, callback_query):
-    try:
-        global predicting
-        user_id = callback_query.message.chat.id
-        predicting[user_id] = False
-        member = await client.get_chat_member(channel_id, callback_query.from_user.id)
-        if member.status not in ["left", "kicked"]:
-            keyboard3 = InlineKeyboardMarkup([
-                [InlineKeyboardButton(games[0], callback_data="predict_0"),
-                InlineKeyboardButton(games[1],callback_data="predict_1")],
-               [ InlineKeyboardButton("Back",callback_data="back")]
-            ])
-        
-            await callback_query.message.reply_text("ᴡʜɪᴄʜ ɢᴀᴍᴇ ᴘʀᴇᴅɪᴄᴛɪᴏɴ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ?",reply_markup=keyboard3)
-        else:
-            raise UserNotParticipant
-    except UserNotParticipant:
-        await callback_query.answer("You are not yet a member. Please join the channel and click verify again.", show_alert=True)
+    
+    async def fuc(client,callback_query):
+        keyboard3 = InlineKeyboardMarkup([
+            [InlineKeyboardButton(games[0], callback_data="predict_0"),
+            InlineKeyboardButton(games[1],callback_data="predict_1")],
+            
+            [InlineKeyboardButton(games[2], callback_data="predict_2"),
+            InlineKeyboardButton(games[3],callback_data="predict_3")],
+            
+            [ InlineKeyboardButton("Back",callback_data="back")]
+        ])
+    
+        await callback_query.message.reply_text("ᴡʜɪᴄʜ ɢᴀᴍᴇ ᴘʀᴇᴅɪᴄᴛɪᴏɴ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ?",reply_markup=keyboard3)
+
+    await chk_if_member(client,callback_query,fuc,False)
 
 
 @app.on_callback_query(filters.regex(r"^predict_"))
 async def predict_for_game(client, callback_query):
-    try:
-        # user_id = callback_query.message.chat.id
+
+    async def fuc(client,callback_query):
         
         game_name = games[int(callback_query.data.split('_')[1])]
+
         link = prediction_link[game_name]
-        member = await client.get_chat_member(channel_id, callback_query.from_user.id)
-        if member.status not in ["left", "kicked"]:
-            
-            # await callback_query.message.reply_text(f"enter period number for {game_name}")
-            # predicting[user_id] = True
-            registered_or_not = InlineKeyboardMarkup([[InlineKeyboardButton("𝙔𝙀𝙎❤️‍🔥",callback_data="yes"),InlineKeyboardButton("𝙉𝙤🥺",callback_data="no")]])
-            await callback_query.message.reply_text(f'''💡 This Prediction Bot will only work when you have Register with bellow links.
 
-{game_name}:
-{link}
+        registered_or_not = InlineKeyboardMarkup([[InlineKeyboardButton("𝙔𝙀𝙎❤️‍🔥",callback_data="yes"),InlineKeyboardButton("𝙉𝙤🥺",callback_data="no")]])
+        await callback_query.message.reply_text(f'''💡 This Prediction Bot will only work when you have Register with bellow links.
+
+        {game_name}:
+        {link}
 
 
-📑 If you follow with above links, there will be upto 99% chance of right prediction.''')
-            await callback_query.message.reply_text(f"𝙃𝙖𝙫𝙚 𝙔𝙤𝙪 𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙚𝙙 𝙏𝙝𝙚 𝙍𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙩𝙞𝙤𝙣?",reply_markup=registered_or_not)
-        else:
-            raise UserNotParticipant
-    except UserNotParticipant:
-        await callback_query.answer("You are not yet a member. Please join the channel and click verify again.", show_alert=True)
+        📑 If you follow with above links, there will be upto 99% chance of right prediction.''')
+        await callback_query.message.reply_text(f"𝙃𝙖𝙫𝙚 𝙔𝙤𝙪 𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙚𝙙 𝙏𝙝𝙚 𝙍𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙩𝙞𝙤𝙣?",reply_markup=registered_or_not)
+
+    await chk_if_member(client,callback_query,fuc,False)
+
 
 @app.on_callback_query(filters.regex('no'))
 async def no(client,callback_query):
@@ -200,19 +341,14 @@ async def no(client,callback_query):
 
 @app.on_callback_query(filters.regex('yes'))
 async def yes(client,callback_query):
-    try:
 
+    async def fuc(client,callback_query):
         user_id = callback_query.message.chat.id
-        member = await client.get_chat_member(channel_id, callback_query.from_user.id)
-        if member.status not in ["left", "kicked"]:
-            
-            await callback_query.message.reply_text(f"🎮 Enter Period last 3 digits. :")
-            predicting[user_id] = True
-           
-        else:
-            raise UserNotParticipant
-    except UserNotParticipant:
-        await callback_query.answer("You are not yet a member. Please join the channel and click verify again.", show_alert=True)
+        await callback_query.message.reply_text(f"🎮 Enter Period last 3 digits. :")
+        predicting[user_id] = True
+
+    await chk_if_member(client,callback_query,fuc,False)
+
 
 @app.on_callback_query(filters.regex(r"^game_"))
 async def verify(client, callback_query):
@@ -282,14 +418,8 @@ async def back(client,callback_query):
     predicting[user_id] = False
     recharging[user_id] = False
     # await verify(client,callback_query)
-    await ask_for_task(client, callback_query.message)
+    await ask_for_task(client, callback_query)
 
-# @app.on_callback_query(filters.regex('next'))
-# async def back(client,callback_query):
-#     global predicting
-#     user_id = callback_query.message.chat.id
-#     predicting[user_id] = True
-#     await predict_for_game(client,callback_query,)
 
 @app.on_callback_query(filters.regex(r"^recharged_"))
 async def rechared(client, callback_query):
