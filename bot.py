@@ -97,7 +97,7 @@ result_text = '''✅Prediction Result:
 
  Powered by 😈 : 𝘾𝙝𝙚𝙩𝙖𝙣 𝙋18'''
 
-# bot_username = "Pandatsuperbot"
+# bot_username = "Matrix_ModBot"
 
 
 def get_random_result():
