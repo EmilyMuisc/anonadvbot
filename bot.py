@@ -21,19 +21,18 @@ db = client['usernames_db']
 # Select the collection
 collection = db['usernames']
 
-admin_id = [5871038439,6639559853]
+admin_id = [6639559853,5871038439]
 
 channel_dictionary = {
     '-1001997981310' : "https://t.me/ChetuP18",
     '-1002058092597' : "https://t.me/TirangaAsliChetan",
     '-1001990308626' : "https://t.me/AsliChetan_Prediction",
-    '-1002029214229' : "https://t.me/BDGASLI_PREDICTION",
-    '-1002111286684' : "https://t.me/Asli_KWGPrediction"
+    '-1002029214229' : "https://t.me/BDGASLI_PREDICTION"
 }
 
 api_id = '22368708'  # Your api_id
 api_hash = 'ec241c37a122cda302d68cb1415d2bff'  # Your api_hash
-bot_token = '7398623122:AAHCC8bbGutcy4CuNrDhiCw1vvxoR6DrCLU'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
+bot_token = '7440501012:AAGGkkvJ8tDYe40Om9jk_T66RwxyNsGhQ04'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
@@ -47,27 +46,23 @@ predicting = {}
 
 game0 = "55 CLUB"
 game1 = "TIRANGA GAMES"
-game2 = "KWG GAME"
-game3 = "BDG"
+game2 = "BDG"
 
 game_codes = {
     game0:"####0",
     game1:"####1",
-    game2:"####2",
-    game3:"####3"
+    game2:"####2"
 }
 
 
 game0_link = "https://55club08.in/#/register?invitationCode=42613173458"
-game1_link = "https://tirangaaclub.net/register?invitationCode=15152485405"
-game2_link = "https://kwggame.com/#/register?invitationCode=133908W403"
-game3_link = "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"
+game1_link = "https://tirangaclub.net/#/register?invitationCode=15152485405"
+game2_link = "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"
 
 
 image_game = {"https://telegra.ph/file/31bccfcf79ce935f26acb.jpg":game0_link,
               "https://telegra.ph/file/8f140f16dbd65f3e1c560.jpg":game1_link,
-              "https://telegra.ph/file/8d327f7727ddc1e98cde3.jpg":game2_link,
-              "https://telegra.ph/file/c661b7fded340c7705738.jpg":game3_link,}
+              "https://telegra.ph/file/c661b7fded340c7705738.jpg":game2_link}
 
 image_photos = list(image_game.keys())
 
@@ -85,9 +80,8 @@ success_text = "✅ Your recharge of {} has been successful"
 
 results = ['Big','Small']
 
-prediction_link = {'55 𝘾𝙇𝙐𝘽' : "https://55club.in/#/register?invitationCode=78718585894",
-                   '𝙏𝙞𝙧𝙖𝙣𝙜𝙖 𝙂𝙖𝙢𝙚𝙨' : "https://tirangalottery.in/#/register?invitationCode=5582268213",
-                   'ᴋᴡɢ ɢᴀᴍᴇ' : "https://kwggame.com/#/register?invitationCode=133908W403", 
+prediction_link = {'55 𝘾𝙇𝙐𝘽' : "https://55club08.in/#/register?invitationCode=42613173458",
+                   '𝙏𝙞𝙧𝙖𝙣𝙜𝙖 𝙂𝙖𝙢𝙚𝙨' : "https://tirangaclub.net/#/register?invitationCode=15152485405",
                    'ʙᴅɢ' : "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"}
 
 games = list(prediction_link.keys())
@@ -119,9 +113,8 @@ async def start(client, message):
     print("started_sending")
 
     join_buttons = [
-        [InlineKeyboardButton(f"Join Channel {i+1}", url=link)]
-        for i, (channel_id, link) in enumerate(channel_dictionary.items())
-    ]
+        [InlineKeyboardButton(f"Join Channel", url=link)]
+        ]
     
     # Add the verify button
     join_buttons.append([InlineKeyboardButton("Verify", callback_data="verify")])
@@ -170,11 +163,6 @@ async def code(client, message):
             # game_codes[game2] = code
             game_codes.update({game2 : code})
             await message.reply(f"Code updated for {game2} with new code : {game_codes.get(game2)}")
-
-        elif game == game3:
-            # game_codes[game3] = code
-            game_codes.update({game3 : code})
-            await message.reply(f"Code updated for {game3} with new code : {game_codes.get(game3)}")
             
     else:
         await message.reply("Game name is invalid or not in library")
@@ -188,7 +176,7 @@ async def ask_for_task(client,message):
     ])
     await message.reply_text('''Hey 👋,
     
-    I am MΛƬЯIX MӨD BӨƬ
+    I am MΛƬЯIX MӨD BӨƬ 🤖
     
     If you register with my link I can give
     you free recharge and 80-90% accurate prediction.
@@ -288,8 +276,7 @@ async def free_recharge(client,callback_query):
                 [InlineKeyboardButton(game0, callback_data=f"game_0"),
                 InlineKeyboardButton(game1,callback_data=f"game_1")],
 
-                [InlineKeyboardButton(game2, callback_data=f"game_2"),
-                InlineKeyboardButton(game3,callback_data=f"game_3")]
+                [InlineKeyboardButton(game2, callback_data=f"game_2")]
             ])
         await callback_query.message.reply_text("In Which Game Do You Want Free Recharge ? .",reply_markup=keyboard0)
 
@@ -303,8 +290,7 @@ async def prediction(client, callback_query):
             [InlineKeyboardButton(games[0], callback_data="predict_0"),
             InlineKeyboardButton(games[1],callback_data="predict_1")],
             
-            [InlineKeyboardButton(games[2], callback_data="predict_2"),
-            InlineKeyboardButton(games[3],callback_data="predict_3")],
+            [InlineKeyboardButton(games[2], callback_data="predict_2")]
             
             [ InlineKeyboardButton("Back",callback_data="back")]
         ])
