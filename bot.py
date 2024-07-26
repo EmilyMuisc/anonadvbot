@@ -57,8 +57,8 @@ game_codes = {
 }
 
 
-game0_link = "https://55club.in/#/register?invitationCode=78718585894"
-game1_link = "https://tirangalottery.in/#/register?invitationCode=5582268213"
+game0_link = "https://55club08.in/#/register?invitationCode=42613173458"
+game1_link = "https://tirangaaclub.net/register?invitationCode=15152485405"
 game2_link = "https://kwggame.com/#/register?invitationCode=133908W403"
 game3_link = "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"
 
