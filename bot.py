@@ -27,7 +27,8 @@ channel_dictionary = {
     '-1001997981310' : "https://t.me/ChetuP18",
     '-1002058092597' : "https://t.me/TirangaAsliChetan",
     '-1001990308626' : "https://t.me/AsliChetan_Prediction",
-    '-1002029214229' : "https://t.me/BDGASLI_PREDICTION"
+    '-1002029214229' : "https://t.me/BDGASLI_PREDICTION",
+    '-1002111286684' : "https://t.me/Asli_KWGPrediction"
 }
 
 api_id = '22368708'  # Your api_id
