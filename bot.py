@@ -5,6 +5,19 @@ from asyncio import sleep
 from random import choice
 import logging
 from pyrogram.errors import FloodWait
+from pyrogram import utils
+
+def get_peer_type_new(peer_id: int) -> str:
+    peer_id_str = str(peer_id)
+    if not peer_id_str.startswith("-"):
+        return "user"
+    elif peer_id_str.startswith("-100"):
+        return "channel"
+    else:
+        return "chat"
+
+utils.get_peer_type = get_peer_type_new
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -98,6 +111,11 @@ bot_username = "Matrix_ModBot"
 def get_random_result():
 
     return choice(results)
+
+@app.on_message(filters.command("init"))
+async def inon(client, message):
+    message.reply("Initiated")
+
 
 @app.on_message(filters.private & filters.command("start"))
 async def start(client, message):
@@ -220,7 +238,7 @@ async def chk_if_member(client,callback_query,function_to_run,first:bool):
             await callback_query.message.edit_text(
                 "You need to join all the channels to proceed.",
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(f"Join Channel {i+1}", url=channel_dictionary[channel_id])]
+                    [InlineKeyboardButton("Join Channel", url=channel_dictionary[channel_id])]
                     for i, channel_id in enumerate(not_joined_channels)
                 ] + [[InlineKeyboardButton("Verify", callback_data="verify")]])
             )
@@ -284,7 +302,7 @@ async def free_recharge(client,callback_query):
 async def prediction(client, callback_query):
     
     async def fuc(client,callback_query):
-        keyboard3 = InlineKeyboardMarkup([[InlineKeyboardButton(games[0], callback_data="predict_0"),InlineKeyboardButton(games[1],callback_data="predict_1")],[InlineKeyboardButton(games[2], callback_data="predict_2")][ InlineKeyboardButton("Back",callback_data="back")]])
+        keyboard3 = InlineKeyboardMarkup([[InlineKeyboardButton(games[0], callback_data="predict_0"),InlineKeyboardButton(games[1],callback_data="predict_1")],[InlineKeyboardButton(games[2], callback_data="predict_2")],[ InlineKeyboardButton("Back",callback_data="back")]])
     
         await callback_query.message.reply_text("ᴡʜɪᴄʜ ɢᴀᴍᴇ ᴘʀᴇᴅɪᴄᴛɪᴏɴ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ?",reply_markup=keyboard3)
 
