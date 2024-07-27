@@ -112,11 +112,9 @@ async def start(client, message):
 
     print("started_sending")
 
+    join_buttons = [[InlineKeyboardButton("Join Channel", url=link)] for i, (channel_id, link) in enumerate(channel_dictionary.items())]
     
-join_buttons = [[InlineKeyboardButton("Join Channel", url=link)] for i, (channel_id, link) in enumerate(channel_dictionary.items())]
-    
-    
-    # Add the verify button
+        # Add the verify button
     join_buttons.append([InlineKeyboardButton("Verify", callback_data="verify")])
     keyb = InlineKeyboardMarkup(join_buttons)
 
