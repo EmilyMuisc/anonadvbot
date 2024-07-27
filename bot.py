@@ -112,7 +112,7 @@ async def start(client, message):
 
     print("started_sending")
 
-    join_buttons = [
+    
         join_buttons = [
         [InlineKeyboardButton("Join Channel", url=link)]
         for i, (channel_id, link) in enumerate(channel_dictionary.items())]
