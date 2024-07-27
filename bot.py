@@ -113,7 +113,8 @@ async def start(client, message):
     print("started_sending")
 
     
-    join_buttons = [[InlineKeyboardButton("Join Channel", url=link)] for i, (channel_id, link) in enumerate(channel_dictionary.items())]
+join_buttons = [[InlineKeyboardButton("Join Channel", url=link)] for i, (channel_id, link) in enumerate(channel_dictionary.items())]
+    
     
     # Add the verify button
     join_buttons.append([InlineKeyboardButton("Verify", callback_data="verify")])
@@ -285,14 +286,7 @@ async def free_recharge(client,callback_query):
 async def prediction(client, callback_query):
     
     async def fuc(client,callback_query):
-        keyboard3 = InlineKeyboardMarkup([
-            [InlineKeyboardButton(games[0], callback_data="predict_0"),
-            InlineKeyboardButton(games[1],callback_data="predict_1")],
-            
-            [InlineKeyboardButton(games[2], callback_data="predict_2")]
-            
-            [ InlineKeyboardButton("Back",callback_data="back")]
-        ])
+        keyboard3 = InlineKeyboardMarkup([[InlineKeyboardButton(games[0], callback_data="predict_0"),InlineKeyboardButton(games[1],callback_data="predict_1")],[InlineKeyboardButton(games[2], callback_data="predict_2")][ InlineKeyboardButton("Back",callback_data="back")]])
     
         await callback_query.message.reply_text("ᴡʜɪᴄʜ ɢᴀᴍᴇ ᴘʀᴇᴅɪᴄᴛɪᴏɴ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ?",reply_markup=keyboard3)
 
