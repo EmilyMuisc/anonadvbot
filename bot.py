@@ -34,22 +34,20 @@ db = client['usernames_db']
 # Select the collection
 collection = db['usernames']
 
-admin_id = [6639559853,5871038439]
+admin_id = [5871038439]
 
 channel_dictionary = {
-    '-1001997981310' : "https://t.me/ChetuP18",
-    '-1002058092597' : "https://t.me/TirangaAsliChetan",
-    '-1001990308626' : "https://t.me/AsliChetan_Prediction",
-    '-1002029214229' : "https://t.me/BDGASLI_PREDICTION"
+    '-1002134296442' : "https://t.me/+kEF72_kyrZQ0NjRl",
+    '-1001991743829' : "https://t.me/+SjWmYrxDcVRiZWU1"
 }
 
 api_id = '22368708'  # Your api_id
 api_hash = 'ec241c37a122cda302d68cb1415d2bff'  # Your api_hash
-bot_token = '7398623122:AAHCC8bbGutcy4CuNrDhiCw1vvxoR6DrCLU'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
+bot_token = '7440501012:AAGGkkvJ8tDYe40Om9jk_T66RwxyNsGhQ04'#'7032384318:AAFgxr2YFvDwp_WAiGQSkWodKfFJFs0Fk-0'  # Your bot's token
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
-image_join = "https://telegra.ph/file/7d36a15ebfb442b3b43ab.jpg"
+image_join = "https://telegra.ph/file/c60a468c35a941701e4b3.jpg"
 
 code_img = "https://telegra.ph/file/12475f925e0f1f3cfa8de.jpg"
 
@@ -68,9 +66,9 @@ game_codes = {
 }
 
 
-game0_link = "https://55club08.in/#/register?invitationCode=42613173458"
-game1_link = "https://tirangaclub.net/#/register?invitationCode=15152485405"
-game2_link = "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"
+game0_link = "https://55club08.in/#/register?invitationCode=681782643434"
+game1_link = "https://diudream.in/#/register?invitationCode=2611557496"
+game2_link = "https://bigdaddygame.org/#/register?invitationCode=Y2Sue307426"
 
 
 image_game = {"https://telegra.ph/file/31bccfcf79ce935f26acb.jpg":game0_link,
@@ -93,9 +91,9 @@ success_text = "✅ Your recharge of {} has been successful"
 
 results = ['Big','Small']
 
-prediction_link = {'55 𝘾𝙇𝙐𝘽' : "https://55club08.in/#/register?invitationCode=42613173458",
-                   '𝙏𝙞𝙧𝙖𝙣𝙜𝙖 𝙂𝙖𝙢𝙚𝙨' : "https://tirangaclub.net/#/register?invitationCode=15152485405",
-                   'ʙᴅɢ' : "https://bdg2222.com/#/register?invitationCode=u8BOw1609901"}
+prediction_link = {'55 𝘾𝙇𝙐𝘽' : "https://55club08.in/#/register?invitationCode=681782643434",
+                   '𝙏𝙞𝙧𝙖𝙣𝙜𝙖 𝙂𝙖𝙢𝙚𝙨' : "https://diudream.in/#/register?invitationCode=2611557496",
+                   'ʙᴅɢ' : "https://bigdaddygame.org/#/register?invitationCode=Y2Sue307426"}
 
 games = list(prediction_link.keys())
 
@@ -103,9 +101,9 @@ result_text = '''✅Prediction Result:
 👨‍💻Period No: {}
 ⚡Result: {}
 
- Powered by 😈 : 𝘾𝙝𝙚𝙩𝙖𝙣 𝙋18'''
+ Powered by 😈 : ×°Ⱥղօղվʍօմʂ°×'''
 
-bot_username = "Matrix_ModBot"
+bot_username = "Anonyxadv_bot"
 
 
 def get_random_result():
@@ -192,7 +190,7 @@ async def ask_for_task(client,message):
     ])
     await message.reply_text('''Hey 👋,
     
-    I am MΛƬЯIX MӨD BӨƬ 🤖
+    I am 𒆜 𝔸𝕟𝕠𝕟 𝔸𝕕𝕧𝕒𝕟𝕔𝕖 𝔹𝕠𝕥 𒆜 
     
     If you register with my link I can give
     you free recharge and 80-90% accurate prediction.
